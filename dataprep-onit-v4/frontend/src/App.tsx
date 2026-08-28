@@ -5,6 +5,7 @@ import BulkTool from './pages/BulkTool'
 import ImputeTool from './pages/ImputeTool'
 import PredictTool from './pages/PredictTool'
 import ValidateTool from './pages/ValidateTool'
+import LandingPage from './pages/LandingPage'
 import './index.css'
 
 const TOOLS = [
@@ -16,7 +17,12 @@ const TOOLS = [
 ]
 
 export default function App() {
+  const [showLanding, setShowLanding] = useState(true)
   const [active, setActive] = useState('clean')
+
+  if (showLanding) {
+    return <LandingPage onLaunch={() => setShowLanding(false)} />
+  }
 
   const Page = {
     clean: CleanTool,
