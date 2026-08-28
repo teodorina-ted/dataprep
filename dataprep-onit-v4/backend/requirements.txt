@@ -7,3 +7,4 @@ scikit-learn
 ctgan
 requests
 python-dotenv
+gunicorn
