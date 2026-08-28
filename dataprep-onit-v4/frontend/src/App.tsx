@@ -41,7 +41,7 @@ export default function App() {
           <Zap size={14} className="text-white" />
         </div>
         <span className="font-semibold text-sm text-onit-dark">DataPrep</span>
-        <span className="text-onit-muted text-xs">ONIT Group · AI Unit</span>
+        <span className="text-onit-muted text-xs">Powered by Python</span>
         <span className="ml-auto text-xs text-onit-muted">local · v2.0</span>
       </header>
 
