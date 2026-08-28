@@ -1,0 +1,77 @@
+DATAPREP ONIT — FULL PIPELINE
+==============================
+
+RAW DATA
+   |
+   v
+[1. BULK MERGE]          -- optional, skip if single file
+   stack same-structure files into one
+   pre-check column mismatches before merging
+   |
+   v
+[2. CLEAN]               -- always required
+   standardize column names
+   remove duplicates
+   fix data types
+   handle missing values (flag / drop / fill)
+   detect outliers (IQR)
+   trim whitespace
+   |
+   v
+[3. IMPUTE]              -- if gaps remain after cleaning
+   Mean / Median / Mode  → fast, dumb, small gaps
+   KNN                   → smart, uses other columns to estimate
+   CTGAN                 → synthetic rows, large missing blocks
+   |
+   v
+[4. PREDICT]             -- train on clean history, predict next period
+   select target column (what to predict)
+   select feature columns (what to use)
+   select model (linear / random forest / gradient boost)
+   train → evaluate → predict next N days/weeks/months
+   save prediction as file
+   |
+   v
+[5. VALIDATE]            -- when real data arrives
+   upload real data for the predicted period
+   compare prediction vs reality
+   accuracy score + error report
+   iterate: retrain model with new real data
+   |
+   v
+CLEAN OUTPUT + REPORT + TEAMS NOTIFICATION
+
+==============================
+DEPLOYMENT OPTIONS
+==============================
+
+A. Local          -- demo, internship, internal ONIT use
+B. SaaS           -- ONIT hosts, clients subscribe, agritech focus
+C. Embedded       -- client hosts on their infra, medical/enterprise
+
+==============================
+BUSINESS MODEL TBD
+==============================
+
+Option B: recurring subscription revenue, scales without hiring
+Option C: setup fee + annual license, premium pricing, GDPR safe
+Q for Giorgia: software company vs consulting company? --> TBD
+
+==============================
+GDPR NOTE
+==============================
+
+Medical data must NEVER leave client infrastructure.
+DataRobot / AWS SageMaker = cloud = GDPR risk for medical.
+DataPrep ONIT = local / client-hosted = safe.
+
+==============================
+PPT NEXT STEPS
+==============================
+
+- Present pipeline to Giorgia
+- Test on real ONIT project data (Maria irrigation / Ali outliers)
+- Decide deployment model (SaaS vs Embedded vs both tiered)
+- Decide business model (software vs consulting) --> TBD
+- CTGAN: demo pre-trained only, never train live
+- Phase 2: integrate prediction output into Power Automate flows

@@ -1,0 +1,9 @@
+flask
+flask-cors
+pandas
+numpy
+openpyxl
+scikit-learn
+ctgan
+requests
+python-dotenv

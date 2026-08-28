@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-onit-blue text-white px-5 py-2.5 rounded-lg font-medium text-sm
+    hover:bg-blue-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply border border-onit-border text-onit-muted px-5 py-2.5 rounded-lg font-medium text-sm
+    hover:bg-gray-50 transition-colors;
+  }
+  .card {
+    @apply bg-white border border-onit-border rounded-xl p-6 shadow-sm;
+  }
+  .badge-success {
+    @apply inline-flex items-center gap-1 bg-green-50 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .badge-warning {
+    @apply inline-flex items-center gap-1 bg-amber-50 text-amber-700 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .badge-danger {
+    @apply inline-flex items-center gap-1 bg-red-50 text-red-700 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+  .badge-info {
+    @apply inline-flex items-center gap-1 bg-blue-50 text-blue-700 text-xs font-medium px-2.5 py-1 rounded-full;
+  }
+}
